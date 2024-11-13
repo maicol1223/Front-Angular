@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { ProductoInterfaces } from '../interfaces/producto-interfaces';
-import { Observable } from 'rxjs';
+import { Observable,map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,19 +9,13 @@ import { Observable } from 'rxjs';
 export class ProductoService {
 
   private http = inject(HttpClient)
-
+ 
   constructor() { }
 
-  getProducto () : Observable<ProductoInterfaces[]> {
-   return this.http.get<ProductoInterfaces[]>("https://api.escuelajs.co/api/v1/products",)
-  }
-
-  getProductoOnly (numero : number) : Observable<ProductoInterfaces[]> {
-   return this.http.get<ProductoInterfaces[]>( "https://api.escuelajs.co/api/v1/products" + numero,)
-  }
-
-  postProductoOnly (numero : number) : Observable<ProductoInterfaces[]> {
-   return this.http.get<ProductoInterfaces[]>("https://api.escuelajs.co/api/v1/products" + numero,)
+  getObjetivos(): Observable<any[]> {
+    return this.http.get<any>('http://localhost:8000/api/objetivos').pipe(
+      map(response => Array.isArray(response) ? response : response.data) // Asegúrate de que sea un array
+    );
   }
 
 }
