@@ -17,6 +17,12 @@ export const routes: Routes = [
         path:"admin",
         canActivate : [ proteccionGuard ],
         children: [
+
+        {
+            path: "home",
+            component:ProductComponent
+        },
+      
         {
             path: "product",
             component:ProductComponent

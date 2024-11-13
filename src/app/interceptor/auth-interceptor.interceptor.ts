@@ -10,12 +10,13 @@ export const authInterceptorInterceptor: HttpInterceptorFn = (req, next) => {
     if (token) {
       const petitionClone = req.clone({
         setHeaders : {
-          Authorization : "Bearer ${token}"
+          Authorization : `Bearer ${token}`
         }
       });
         return next(petitionClone).pipe(catchError(handleError));
    }
   }
+  
 
  return next(req).pipe(catchError(handleError));
 
