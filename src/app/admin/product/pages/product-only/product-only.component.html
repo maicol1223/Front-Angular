@@ -1,1 +1,128 @@
-<p>product-only works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Focus-Up - Objective Details</title>
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    nav ul {
+      list-style-type: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav li {
+      margin-left: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .content {
+      padding: 40px;
+    }
+
+    .objective-details {
+      background-color: #f1f1f1;
+      padding: 20px;
+      border-radius: 5px;
+    }
+
+    .objective-details h2 {
+      margin-top: 0;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 20px;
+      background-color: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress {
+      height: 100%;
+      background-color: #4CAF50;
+      width: 50%;
+    }
+
+    .task-list {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .task-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .task-list li span {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Focus-Up</div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Objectives</a></li>
+        <li><a href="#">Profile</a></li>
+        <li><a href="#">Logout</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="content">
+    <div class="objective-details">
+      <h2>Objective 1</h2>
+      <p>Description of Objective 1</p>
+      <div class="progress-bar">
+        <div class="progress"></div>
+      </div>
+      <h3>Tasks</h3>
+      <ul class="task-list">
+        <li>
+          <span>Task 1</span>
+          <span>50% Complete</span>
+        </li>
+        <li>
+          <span>Task 2</span>
+          <span>75% Complete</span>
+        </li>
+        <li>
+          <span>Task 3</span>
+          <span>25% Complete</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>
