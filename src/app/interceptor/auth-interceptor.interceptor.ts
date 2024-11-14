@@ -5,12 +5,12 @@ export const authInterceptorInterceptor: HttpInterceptorFn = (req, next) => {
   console.log("Pase por el interceptor");
 
   let token = localStorage.getItem("token")
-
-  if (req.url.includes("/api")){
+console.log("token ", token)
+  if (req.url.includes("localhost:8000")){
     if (token) {
       const petitionClone = req.clone({
         setHeaders : {
-          Authorization : `Bearer ${token}`
+          Authorization : `${token}`
         }
       });
         return next(petitionClone).pipe(catchError(handleError));
