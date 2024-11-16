@@ -1,0 +1,9 @@
+<div class="objective-card">
+    <h3>{{ objetivo.nombre }}</h3>
+    <p>{{ objetivo.descripcion }}</p>
+    <p><strong>Prioridad:</strong> {{ objetivo.prioridad }}</p>
+    <p><strong>Categoría:</strong> {{ objetivo.categoria }}</p>
+    <p><strong>Creado el:</strong> {{ objetivo.fechaCreacion | date:'shortDate' }}</p>
+    <p><strong>Finalización:</strong> {{ objetivo.fechaFinalizacion | date:'shortDate' }}</p>
+    <span class="tag">{{ objetivo.completado ? 'Completado' : 'En progreso' }}</span>
+  </div>

@@ -1,0 +1,83 @@
+<div class="modal-container">
+    <h2 mat-dialog-title>Añadir Nuevo Objetivo</h2>
+    
+    <form [formGroup]="objectiveForm" (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Título</mat-label>
+        <input matInput formControlName="nombre" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput formControlName="descripcion" required></textarea>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Fecha de Finalización</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaFinalizacion" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Prioridad</mat-label>
+        <mat-select formControlName="prioridad" required>
+          <mat-option value="Alta">Alta</mat-option>
+          <mat-option value="Mediana">Mediana</mat-option>
+          <mat-option value="Baja">Baja</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Categoría</mat-label>
+        <mat-select formControlName="categoria" required>
+          <mat-option value="Personal">Personal</mat-option>
+          <mat-option value="Académica">Académica</mat-option>
+          <mat-option value="Profesional">Profesional</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="days-selector">
+        <mat-label>Días de recordatorio</mat-label>
+        <mat-chip-listbox formControlName="rememberDays" multiple>
+          <mat-chip-option value="LUN">Lunes</mat-chip-option>
+          <mat-chip-option value="MAR">Martes</mat-chip-option>
+          <mat-chip-option value="MIE">Miércoles</mat-chip-option>
+          <mat-chip-option value="JUE">Jueves</mat-chip-option>
+          <mat-chip-option value="VIE">Viernes</mat-chip-option>
+          <mat-chip-option value="SAB">Sábado</mat-chip-option>
+          <mat-chip-option value="DOM">Domingo</mat-chip-option>
+        </mat-chip-listbox>
+      </div>
+
+      <div formArrayName="subObjetivos" class="sub-objectives">
+        <h3>Sub-objetivos</h3>
+        <div *ngFor="let subObjetivo of subObjetivos.controls; let i=index" [formGroupName]="i" class="sub-objective-item">
+          <mat-form-field appearance="fill">
+            <mat-label>Título</mat-label>
+            <input matInput formControlName="titulo">
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Descripción</mat-label>
+            <input matInput formControlName="descripcion">
+          </mat-form-field>
+
+          <button type="button" mat-icon-button color="warn" (click)="removeSubObjetivo(i)">
+            <mat-icon>remove</mat-icon>
+          </button>
+        </div>
+
+        <button type="button" mat-button color="primary" (click)="addSubObjetivo()">
+          <mat-icon>add</mat-icon> Añadir Sub-objetivo
+        </button>
+      </div>
+
+      <div class="action-buttons">
+        <button type="button" mat-button (click)="onCancel()">Cancelar</button>
+        <button type="submit" mat-raised-button color="primary" [disabled]="!objectiveForm.valid">
+          Guardar
+        </button>
+      </div>
+    </form>
+  </div>

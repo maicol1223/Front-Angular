@@ -22,22 +22,15 @@
       </nav>
     </div>
   </header>
-  
+
   <div class="content">
     <h1>Welcome , User!</h1>
     <h2>Tus Objetivos : </h2>
     <div class="objectives-container">
-      <div *ngFor="let objetivo of objetivos" class="objective-card">
-        <h3>{{ objetivo.nombre }}</h3>
-        <p>{{ objetivo.descripcion }}</p>
-        <p><strong>Prioridad:</strong> {{ objetivo.prioridad }}</p>
-        <p><strong>Categoría:</strong> {{ objetivo.categoria }}</p>
-        <p><strong>Creado el:</strong> {{ objetivo.fechaCreacion | date:'shortDate' }}</p>
-        <p><strong>Finalización:</strong> {{ objetivo.fechaFinalizacion | date:'shortDate' }}</p>
-        <span class="tag">En progreso</span>
-      </div>
+      <app-objetive-card *ngFor="let objetivo of objetivos" [objetivo]="objetivo"></app-objetive-card>
     </div>
   </div>
+<app-add-objetive-buttom (openForm)="openObjectiveForm()"> </app-add-objetive-buttom>
 
 </body>
 </html>

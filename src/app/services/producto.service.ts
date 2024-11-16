@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { ProductoInterfaces } from '../interfaces/producto-interfaces';
 import { Observable,map } from 'rxjs';
-
+import { Objetivo, ObjetivoResponse } from '../interfaces/objetivo.interface';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,4 +18,7 @@ export class ProductoService {
     );
   }
 
+  addObjetivo(objetivo: Partial<Objetivo>): Observable<ObjetivoResponse> {
+    return this.http.post<ObjetivoResponse>(`http://localhost:8000/api/objetivos`, objetivo);
+  }
 }
